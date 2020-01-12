@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es5",
+        "moduleResolution": "node",
+        "module": "es2015",
+        "jsx": "react",
+        "typeRoots": ["node_modules/@types"]
+    }
+}

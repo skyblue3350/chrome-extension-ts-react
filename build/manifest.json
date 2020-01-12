@@ -1,0 +1,27 @@
+{
+    "name": "sample tool",
+    "short_name": "sample tool",
+    "description": "sample description",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "browser_action": {
+        "default_title": "",
+        "default_popup": "popup.html"
+    },
+    "options_page": "option.html",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "web_accessible_resources": [
+        "*.png",
+        "*.eot",
+        "*.woff",
+        "*.woff2",
+        "*.ttf",
+        "*.svg"
+    ],
+    "permissions": [
+        "storage"
+    ]
+}
