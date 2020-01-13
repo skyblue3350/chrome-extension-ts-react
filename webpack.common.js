@@ -1,8 +1,7 @@
-var path = require('path');
+const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
-    watch: true,
     entry: {
         popup: path.join(__dirname, 'src/popup/index.tsx'),
         background: path.join(__dirname, 'src/background/index.ts'),
@@ -42,4 +41,10 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js']
     },
+    plugins: [
+        new CleanWebpackPlugin(),
+    ],
+    performance: {
+        hints: false
+    }
 }
