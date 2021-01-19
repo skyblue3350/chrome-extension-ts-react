@@ -17,11 +17,11 @@ docker-run: docker-rm
 docker-shell:
 	docker exec -it ${DEV_CONTAINER_NAME} bash
 
-docker-dev:
+docker-dev: docker-run
 	docker exec -it ${DEV_CONTAINER_NAME} npm run dev
 
-docker-prod:
+docker-prod: docker-run
 	docker exec -it ${DEV_CONTAINER_NAME} npm run prod
 
-docker-lint:
+docker-lint: docker-run
 	docker exec -it ${DEV_CONTAINER_NAME} npm run lint

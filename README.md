@@ -1,13 +1,13 @@
-# Chrome-extension (built with TypeScript + React + Semantic UI)
+# Chrome-extension Template (built with TypeScript + React + Semantic UI)
 
-quickly build chrome extensions using TypeScript and React
+quickly build chrome extension using TypeScript and React
 
-## Setup
+## Setup(npm)
 ```
 $ npm install
 ```
 
-## Development
+### Development
 ```
 $ npm run dev
 ```
@@ -20,3 +20,20 @@ $ npm run prod
 $ npm run build
 ```
 
+## Setup(docker)
+```
+make docker-build
+```
+
+### Development
+```
+$ make docker-dev
+```
+```
+$ make docker-prod
+```
+
+### shell
+```
+$ make docker-shell
+```
