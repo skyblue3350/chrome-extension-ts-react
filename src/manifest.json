@@ -1,9 +1,15 @@
 {
-    "name": "sample tool",
-    "short_name": "sample tool",
-    "description": "sample description",
-    "version": "1.0.0",
+    "name": "{{ NAME }}",
+    "short_name": "{{ NAME }}",
+    "description": "{{ DESCRIPTION }}",
+    "version": "{{ VERSION }}",
     "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["*://example.com/*"],
+            "js": ["js/example.js"]
+        }
+    ],
     "background": {
         "scripts": ["js/background.js"]
     },
@@ -23,5 +29,8 @@
     ],
     "permissions": [
         "storage"
-    ]
+    ],
+    "icons": {
+        "128": "icon.png"
+    }
 }

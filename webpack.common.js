@@ -1,11 +1,14 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const packageJson = require('./package.json')
 
 module.exports = {
     entry: {
         popup: path.join(__dirname, 'src/popup/index.tsx'),
         background: path.join(__dirname, 'src/background/index.ts'),
         option: path.join(__dirname, 'src/option/index.tsx'),
+        example: path.join(__dirname, 'src/content/example/index.ts'),
     },
     output: {
         path: path.join(__dirname, 'build/js'),
@@ -43,6 +46,32 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './src/manifest.json'),
+                    to: path.resolve(__dirname, './build/'),
+                    transform: function (content, path) {
+                        return content.toString()
+                            .replace(/{{ NAME }}/g, packageJson.name)
+                            .replace(/{{ VERSION }}/g, packageJson.version)
+                            .replace(/{{ DESCRIPTION }}/g, packageJson.description)
+                    },
+                },
+                {
+                    from: path.resolve(__dirname, './src/icon.png'),
+                    to: path.resolve(__dirname, './build/'),
+                },
+                {
+                    from: path.resolve(__dirname, './src/popup.html'),
+                    to: path.resolve(__dirname, './build/')
+                },
+                {
+                    from: path.resolve(__dirname, './src/option.html'),
+                    to: path.resolve(__dirname, './build/')
+                }
+            ],
+        }),
     ],
     performance: {
         hints: false
