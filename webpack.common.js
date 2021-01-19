@@ -2,14 +2,10 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const packageJson = require('./package.json')
+const entries = require('./webpack.entries').entries
 
 module.exports = {
-    entry: {
-        popup: path.join(__dirname, 'src/popup/index.tsx'),
-        background: path.join(__dirname, 'src/background/index.ts'),
-        option: path.join(__dirname, 'src/option/index.tsx'),
-        example: path.join(__dirname, 'src/content/example/index.ts'),
-    },
+    entry: entries,
     output: {
         path: path.join(__dirname, 'build/js'),
         filename: '[name].js'
